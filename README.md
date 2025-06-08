@@ -32,6 +32,7 @@ layoffs-Raw Data.csv
 ## 🔎 Key SQL Operations
 ### ✅ Data Cleaning
 
+```sql
 USE world_layoffs;
 SELECT * FROM layoffs;
 
