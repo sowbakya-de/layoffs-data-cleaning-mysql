@@ -226,3 +226,10 @@ WHERE years IS NOT NULL
 )
 SELECT * FROM company_year_rank
 WHERE Ranking <=5;
+
+--
+
+🙌 Credits
+Dataset by  Swapnil Tripathi on Kaggle
+
+Tutorial by Alex The Analyst
