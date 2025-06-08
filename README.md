@@ -13,6 +13,13 @@ The project follows the tutorial by [Alex The Analyst] covering **data cleaning*
 
 ---
 
+🙌 Credits
+Dataset by  Swapnil Tripathi on Kaggle
+
+Tutorial by Alex The Analyst
+
+---
+
 ## 🧰 Tools Used
 
 - MySQL (Workbench)
@@ -28,10 +35,7 @@ layoffs-Raw Data.csv
 ├── Data Cleaning - SQL Queries.sql → SQL queries for data cleaning
 └── Data Cleaning - SQL Final Output.csv → Cleaned data
 
-🙌 Credits
-Dataset by  Swapnil Tripathi on Kaggle
-
-Tutorial by Alex The Analyst
+---
 
 ## 🔎 Key SQL Operations
 ### ✅ Data Cleaning
