@@ -28,6 +28,10 @@ layoffs-Raw Data.csv
 ├── Data Cleaning - SQL Queries.sql → SQL queries for data cleaning
 └── Data Cleaning - SQL Final Output.csv → Cleaned data
 
+🙌 Credits
+Dataset by  Swapnil Tripathi on Kaggle
+
+Tutorial by Alex The Analyst
 
 ## 🔎 Key SQL Operations
 ### ✅ Data Cleaning
@@ -229,8 +233,3 @@ SELECT * FROM company_year_rank
 WHERE Ranking <=5;
 
 --
-
-🙌 Credits
-Dataset by  Swapnil Tripathi on Kaggle
-
-Tutorial by Alex The Analyst
