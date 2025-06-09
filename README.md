@@ -1,7 +1,17 @@
 # 📉 Layoffs Data Cleaning using MySQL
 
 Data Cleaning project using **MySQL** on a global **layoffs dataset**.  
-The project follows the tutorial by [Alex The Analyst] covering **data cleaning** step by step.
+This project performs end-to-end **data cleaning and exploratory data analysis (EDA)** on a global layoffs dataset using **MySQL**.  
+It follows a structured workflow inspired by **Alex the Analyst's YouTube series**, focusing on:
+
+---
+- Cleaning inconsistent and missing data (industry, stage, dates)
+- Standardizing column values and removing duplicates
+- Extracting year and month from date
+- Analyzing layoffs by company, country, industry, and funding stage
+- Generating insights using SQL aggregate functions, grouping, sorting, and filtering
+
+The project helps demonstrate real-world SQL skills like **data transformation, pattern discovery, and reporting**, essential for data analyst roles.
 
 ---
 
@@ -30,10 +40,12 @@ Tutorial by Alex The Analyst
 ## 🔧 Project Structure
 
 layoffs-Raw Data.csv
-
+│
 ├── README.md → Project Overview
 ├── Data Cleaning - SQL Queries.sql → SQL queries for data cleaning
 └── Data Cleaning - SQL Final Output.csv → Cleaned data
+└── EDA - SQL Final Output.csv → Cleaned data
+└── EDA - SQL SQL Queries.sql → Cleaned data
 
 ---
 
@@ -236,4 +248,66 @@ WHERE years IS NOT NULL
 SELECT * FROM company_year_rank
 WHERE Ranking <=5;
 
+--
+
+## 📊 SQL EDA Highlights
+
+SELECT * 
+FROM layoffs_staging1;
+
+-- MIN, MAX
+SELECT MAX(total_laid_off), MAX(percentage_laid_off)
+FROM layoffs_staging1;
+
+SELECT *
+FROM layoffs_staging1
+WHERE percentage_laid_off = 1
+ORDER BY funds_raised_millions DESC;
+
+-- GROUP BY company
+SELECT company, SUM(total_laid_off)
+FROM layoffs_staging1
+GROUP BY company
+ORDER BY 2 DESC;
+
+--MIN, MAX
+SELECT MIN(`date`), MAX(`date`)
+FROM layoffs_staging1;
+
+-- GROUP BY industry
+SELECT industry, SUM(total_laid_off)
+FROM layoffs_staging1
+GROUP BY industry
+ORDER BY 2 DESC;
+ 
+-- GROUP BY country
+SELECT country, SUM(total_laid_off) 
+FROM layoffs_staging1
+GROUP BY country
+ORDER BY SUM(total_laid_off) DESC;
+
+-- GROUP BY date
+SELECT `date`, SUM(total_laid_off)
+FROM layoffs_staging1
+GROUP BY `date`
+ORDER BY `date` DESC;
+
+-- Convert it into Year
+SELECT YEAR(`date`), SUM(total_laid_off)
+FROM layoffs_staging1
+GROUP BY YEAR(`date`)
+ORDER BY 1 DESC;
+
+-- GROUP BY stage
+SELECT stage, SUM(total_laid_off)
+FROM layoffs_staging1
+GROUP BY stage
+ORDER BY 2 DESC;
+
+SELECT * FROM layoffs_staging1;
+
+SELECT stage, AVG(percentage_laid_off)
+FROM layoffs_staging1
+GROUP BY stage
+ORDER BY 1 ASC;
 --
